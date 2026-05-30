@@ -1,6 +1,14 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom';
-import {type Post} from '../data/posts';
+
+export type Post = {
+  id: number;
+  title: string;
+  thumbnailUrl: string;
+  createdAt: string;
+  categories: string[];
+  content: string;
+}
 
 export default function DetailPage() {
   const { id } = useParams();

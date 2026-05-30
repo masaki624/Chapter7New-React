@@ -1,11 +1,17 @@
 import { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
-import initialPost, { type Post } from '../data/posts';
 
-
+export type Post = {
+  id: number;
+  title: string;
+  thumbnailUrl: string;
+  createdAt: string;
+  categories: string[];
+  content: string;
+}
 
 export default function TopPage(){
-  const [posts, setposts] = useState<Post[]>(initialPost);
+  const [posts, setposts] = useState<Post[]>([]);
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
@@ -28,7 +34,7 @@ export default function TopPage(){
     );
   };
 
-  if(!posts) {
+  if(posts.length === 0) {
     return (
       <div className="text-center p-20">
         <h2 className="text-2xl font-bold mb-4">記事がありませんでした</h2>
