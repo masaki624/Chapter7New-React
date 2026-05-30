@@ -1,0 +1,30 @@
+//import React from 'react';
+import { BrowserRouter, Routes, Link, Route } from 'react-router-dom';
+import TopPage from './pages/TopPage';
+import DetailPage from './pages/DetailPage';
+import ContactPage from './pages/ContactPage';
+
+export default function App() {
+  
+  return (
+    <BrowserRouter>
+      <div>
+        <header className="bg-black text-white">
+          <nav className="flex justify-between items-center p-4 py-6">
+            <Link to ="/">BLOG</Link>
+            <Link to="/contact">お問い合わせ</Link>
+          </nav>
+        </header>
+        
+        <main className="max-w-2xl mx-auto px-6 pt-20 pb-32">
+          <Routes>
+            <Route path='/' element={<TopPage />} />
+            <Route path='post/:id' element={<DetailPage />} />
+            <Route path='/contact' element={<ContactPage />} />
+          </Routes>
+          
+        </main>
+      </div>       
+    </BrowserRouter>
+  );
+}
